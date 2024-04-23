@@ -1,29 +1,36 @@
 <template>
   <div class="black-bg" v-if="modal.showYN">
     <div class="white-bg">
-      <h4>{{ modal.title }}</h4>
-      <p v-html="modal.content" />
+      <span>상품 번호 : {{ product.id }}</span>
+      <h4>{{ product.title }}</h4>
+      <p>{{ product.content }}</p>
+      <p>{{ product.price }}</p>
       <button @click="modalClose">모달창 닫기</button>
     </div>
   </div>
 </template>
 
 <script>
+import { productsData } from "@/constants/products";
+
 export default {
   name: "ModalComponent",
   props: {
     modal: {
       type: {
         showYN: Boolean,
-        title: String,
-        content: String,
+        index: String,
       },
       default: {
         showYN: false,
-        title: "타이틀",
-        content: "내용",
+        index: 0,
       },
     },
+  },
+  data() {
+    return {
+      product: productsData[this.modal.index],
+    };
   },
   methods: {
     modalClose() {
