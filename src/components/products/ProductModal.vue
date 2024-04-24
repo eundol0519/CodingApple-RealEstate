@@ -15,7 +15,7 @@
 import { productsData } from "@/constants/products";
 
 export default {
-  name: "ProductModalComponent",
+  name: "ProductModal",
   props: {
     modal: {
       type: {

@@ -18,7 +18,7 @@
 import { productsData } from "@/constants/products";
 
 export default {
-  name: "ProductsComponent",
+  name: "Products",
   data() {
     return {
       products: productsData,

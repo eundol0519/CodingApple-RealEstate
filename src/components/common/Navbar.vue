@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "NavbarComponent",
+  name: "Navbar",
   data() {
     return { menus: ["Home", "Products", "About"] };
   },
