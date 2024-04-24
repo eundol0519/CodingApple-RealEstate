@@ -1,5 +1,5 @@
 <template>
-  <ProductModal :modal="modal" @modal="modalShowHandler" />
+  <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
   <Navbar />
   <div class="discount">
     <h4>지금 결제하면 20% 할인</h4>

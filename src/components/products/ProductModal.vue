@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     modalClose() {
-      this.$emit("modal", false);
+      this.$emit("modalShowHandler", false);
     },
   },
 };
