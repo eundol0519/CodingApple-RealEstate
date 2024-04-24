@@ -4,7 +4,7 @@
   <div class="discount">
     <h4>지금 결제하면 20% 할인</h4>
   </div>
-  <Products @setModalInfo="setModalInfo" @modalShowHandler="modalShowHandler" />
+  <Products @setIndex="setIndex" @modalShowHandler="modalShowHandler" />
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {
     };
   },
   methods: {
-    setModalInfo(index) {
+    setIndex(index) {
       this.modal.index = index;
     },
     modalShowHandler(state) {
