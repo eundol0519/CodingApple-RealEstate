@@ -1,10 +1,11 @@
 <template>
   <div class="black-bg" v-if="modal.showYN">
     <div class="white-bg">
-      <span>상품 번호 : {{ product.id }}</span>
-      <h4>{{ product.title }}</h4>
-      <p>{{ product.content }}</p>
-      <p>{{ product.price }}</p>
+      <img :src="products[this.modal.index].image" alt="room" />
+      <span>상품 번호 : {{ products[this.modal.index].id }} / 허위 매물 신고 수 : {{ products[this.modal.index].count }}건</span>
+      <h4>{{ products[this.modal.index].title }}</h4>
+      <p>{{ products[this.modal.index].content }}</p>
+      <p>{{ products[this.modal.index].price }}원</p>
       <button @click="modalClose">모달창 닫기</button>
     </div>
   </div>
@@ -14,7 +15,7 @@
 import { productsData } from "@/constants/products";
 
 export default {
-  name: "ModalComponent",
+  name: "ProductModalComponent",
   props: {
     modal: {
       type: {
@@ -29,7 +30,7 @@ export default {
   },
   data() {
     return {
-      product: productsData[this.modal.index],
+      products: productsData,
     };
   },
   methods: {
@@ -47,6 +48,10 @@ body {
 
 div {
   box-sizing: border-box;
+}
+
+img {
+  width: 100%;
 }
 
 .black-bg {
