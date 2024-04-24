@@ -29,7 +29,7 @@ export default {
       this.products[i].count++;
     },
     modalHandler(index) {
-      this.$emit("setModalInfo", index);
+      this.$emit("setIndex", index);
       this.$emit("modalShowHandler", true);
     },
   },
