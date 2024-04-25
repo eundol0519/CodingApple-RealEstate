@@ -1,5 +1,7 @@
 <template>
-  <button @click="sortHandler('price')">가격 순으로 정렬</button>
+  <button @click="sortHandler('cheap-price')">가격 높은 순으로 정렬</button>
+  &nbsp;
+  <button @click="sortHandler('expensive-price')">가격 낮은 순으로 정렬</button>
   &nbsp;
   <button @click="sortHandler('title')">제목 순으로 정렬</button>
   &nbsp;
@@ -42,8 +44,11 @@ export default {
         case "title": // 문자열 정렬
           this.products = [...this.products].sort((a, b) => (a.title < b.title ? -1 : a.title > b.title ? 1 : 0));
           break;
-        case "price": // 숫자 정렬
+        case "expensive-price": // 숫자 정렬
           this.products = [...this.products].sort((a, b) => a.price - b.price);
+          break;
+        case "cheap-price": // 숫자 정렬
+          this.products = [...this.products].sort((a, b) => b.price - a.price);
           break;
         default:
           this.products = productsData;
