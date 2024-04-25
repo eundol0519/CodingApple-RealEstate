@@ -1,5 +1,11 @@
 <template>
-  <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
+  <!-- <transition name="fade">
+    <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
+  </transition> -->
+  <div class="start" :class="{ end: modal.showYN }">
+    <!-- :class="{ end : modal.showYN }" : class에 데이터 바인딩 할 때 Object({}) 형식을 사용하면 value의 값이 true일 때 key에 있는 class가 노출된다. -->
+    <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
+  </div>
   <Navbar />
   <div class="discount">
     <h4>지금 결제하면 20% 할인</h4>
@@ -52,5 +58,39 @@ export default {
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
+}
+
+.start {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.end {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: all 1s;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  transition: all 1s;
+}
+
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
