@@ -1,7 +1,7 @@
 <template>
-  <!-- <transition name="fade">
+  <Transition name="fade">
     <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
-  </transition> -->
+  </Transition>
   <div class="start" :class="{ end: modal.showYN }">
     <!-- :class="{ end : modal.showYN }" : class에 데이터 바인딩 할 때 Object({}) 형식을 사용하면 value의 값이 true일 때 key에 있는 class가 노출된다. -->
     <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
