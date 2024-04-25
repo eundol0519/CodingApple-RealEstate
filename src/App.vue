@@ -7,9 +7,7 @@
     <ProductModal :modal="modal" @modalShowHandler="modalShowHandler" />
   </div>
   <Navbar />
-  <div class="discount">
-    <h4>지금 결제하면 20% 할인</h4>
-  </div>
+  <Discount v-if="showDiscount" />
   <Products @setIndex="setIndex" @modalShowHandler="modalShowHandler" />
 </template>
 
@@ -17,6 +15,7 @@
 import Navbar from "./components/common/Navbar.vue";
 import ProductModal from "./components/products/ProductModal.vue";
 import Products from "./components/products/Products.vue";
+import Discount from "./components/main/Discount.vue";
 
 export default {
   name: "App",
@@ -24,6 +23,7 @@ export default {
     ProductModal,
     Navbar,
     Products,
+    Discount,
   },
   data() {
     return {
@@ -31,6 +31,7 @@ export default {
         showYN: false,
         index: 0,
       },
+      showDiscount: true,
     };
   },
   methods: {
@@ -40,6 +41,12 @@ export default {
     modalShowHandler(state) {
       this.modal.showYN = state;
     },
+  },
+  mounted() {
+    // - 2초 후 showDiscount를 false로 변경해주는 코드
+    // setTimeout(() => {
+    //   this.showDiscount = false;
+    // }, 2000);
   },
 };
 </script>

@@ -42,14 +42,19 @@ export default {
       this.$emit("modalShowHandler", false);
     },
   },
-  watch: {
-    months(value) {
-      if (isNaN(value)) {
-        alert("숫자만 입력해주세요.");
-        this.months = 1;
-        return;
-      }
-    },
+  // watch: {
+  //   months(value) {
+  //     if (isNaN(value)) {
+  //       alert("숫자만 입력해주세요.");
+  //       this.months = 1;
+  //       return;
+  //     }
+  //   },
+  // },
+  updated() {
+    if (Number(this.months) === 2) {
+      alert("2개월입니다.");
+    }
   },
 };
 </script>
